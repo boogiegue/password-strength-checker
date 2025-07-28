@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Password Strength Checker</title>
+
+        <!-- Font Awesome CDN for icons -->
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-2JsC1xBunvNv4R1m3T+leK9Xh0Hw+pmjdyAkKXtT0cl15YIRtvB+Kd7OGHQ9uEzBz0UI6qmfV/dfw/evFBBhgw=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+    />
+
+    <!-- Link to your CSS file stored in checker/static/checker/style.css -->
+    <link rel="stylesheet" href="{% static 'checker/style.css' %}">
+  </head>
+
+  <body>
+    <div class="container">
+      <!-- Title of the page -->
+      <h1>Check Your Password</h1>
+
+      <!-- Input field where user types their password -->
+      <div class="input-wrapper">
+        <input type="password" id="password" placeholder="Enter your password" />
+        <i class="fa-solid fa-eye-slash" id="togglePassword"></i>
+      </div>
+      
+      <!-- Strength bar container — background is gray, fill color changes based on strength -->
+      <div id="strengthBar">
+        <!-- Dynamic fill bar — width and color change via JavaScript -->
+        <div id="barFill"></div>
+      </div>
+
+      <!-- Feedback paragraph — shows text like "Weak", "Strong", etc. -->
+      <p id="feedback">Start typing to test your password strength.</p>
+    </div>
+
+    <!-- zxcvbn: Password strength estimation library by Dropbox -->
+    <script src="https://cdn.jsdelivr.net/npm/zxcvbn@4.4.2/dist/zxcvbn.js"></script>
+
+    <!-- Your custom JavaScript file — stored in checker/static/checker/script.js -->
+    <script src="{% static 'checker/script.js' %}"></script>
+  </body>
+</html>
